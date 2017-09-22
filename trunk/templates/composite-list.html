@@ -1,0 +1,20 @@
+<ion-header-bar align-title="left" class="bar-dark">
+    <div class="buttons">
+        <button class="button button-icon icon ion-arrow-left-c" ui-sref="tab.composite"></button>
+    </div>
+    <!-- <div class="h1 title" ng-bind="message.name">微信</div> -->
+    <div class="h1 title" ng-bind="composite.title"></div>
+    <div class="buttons">
+        <button class="button button-icon icon ion-person"></button>
+    </div>
+</ion-header-bar>
+<ion-content class="rj-stable-content" id="composite-detail-content">
+    <div class="list padding">
+
+        <button ng-repeat="question in compositeDetails" ng-click="openQuestion(question.number)" 
+                class="button-light" 
+                style="width:40px;height:40px;border-radius:30px;{{question.style;}}">
+                {{question.number}}
+        </button>
+    </div>
+</ion-content>

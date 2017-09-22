@@ -1,0 +1,22 @@
+<ion-header-bar align-title="left" class="bar-dark">
+    <div class="h1 title">综合能力</div>
+    <div class="buttons">
+        <button class="button no-animation button-icon icon ion-android-search">
+        </button>
+        <button class="button no-animation button-icon icon ion-android-add">
+        </button>
+    </div>
+</ion-header-bar>
+<ion-view>
+    <ion-content on-swipe-left="onSwipeLeft()">
+        <ion-list rj-close-back-drop>
+            <ion-item class="item-avatar" rj-hold-active ng-repeat="composite in composites" ng-click="compositeDetail(composite)">
+                <img ng-src="{{composite.pic}}">
+                <span class="rj-sm-red-icon"><p ng-bind="composite.details.length"></p></span>
+                <h2 ng-bind="composite.name"></h2>
+                <p class="rj-list-p" ng-bind="composite.title"></p>
+                <span class="rj-push-right" ng-bind="composite.desc"></span>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

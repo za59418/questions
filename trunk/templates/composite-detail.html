@@ -1,0 +1,51 @@
+<ion-header-bar align-title="left" class="bar-dark">
+    <div class="buttons">
+        <button class="button button-icon icon ion-arrow-left-c" ng-click="questionList()"></button>
+    </div>
+    <!-- <div class="h1 title" ng-bind="message.name">微信</div> -->
+    <div class="h1 title" ng-bind="composite.title"></div>
+    <div class="buttons">
+        <button class="button button-icon icon ion-person"></button>
+    </div>
+</ion-header-bar>
+<ion-content class="rj-stable-content" id="composite-detail-content">
+    <div class="list">
+        <div class="item item-text-wrap">
+            （{{currQuestion.number}}）&nbsp;{{currQuestion.question}}
+            <div ng-show="currQuestion.qImg">
+                <img src="{{currQuestion.qImg}}" style="width:380px;height:150px;" />
+            </div>
+        </div>
+
+        <ion-checkbox ng-repeat="answer in currQuestion.answers" ng-model="answer.checked" class="item item-text-wrap">
+            {{answer.number}}&nbsp;{{answer.content}}
+        </ion-checkbox>
+
+        <div>
+            <label ng-show="answerVisible" ng-class="item item-content h3 " ng-bind-html="answerResult"></label>
+        </div>
+        <div>
+            <label ng-show="answerVisible" ng-class="item item-content h3 ">正确答案：<b style="color:green;">{{currQuestion.rightAnswer}}</b></label>
+        </div>
+        <div>
+            <label ng-show="answerVisible" ng-class="item item-content h5">问题解析：{{currQuestion.analysis}}</label>
+        </div>
+    </div>
+</ion-content>
+<ion-footer-bar align-title="left" class="bar-light" resize-foot-bar>
+    <p>
+        <button class="button icon-left ion-ios-checkmark-outline rj-hold-active " ng-click="answer()">确定</button>
+    </p>
+    &nbsp;
+    <p>
+        <button class="button icon-left ion-ios-list-outline rj-hold-active " ng-click="questionList()">列表</button>
+    </p>
+    &nbsp;
+    <p>
+        <button class="button icon-left ion-ios-rewind-outline rj-hold-active " ng-click="prevQuestion()" ng-disabled="prevBtnDisabled">上题</button>
+    </p>
+    &nbsp;
+    <p>
+        <button class="button icon-left ion-ios-fastforward-outline rj-hold-active " ng-click="nextQuestion()" ng-disabled="nextBtnDisabled">下题</button>
+    </p>
+</ion-footer-bar>
