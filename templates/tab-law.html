@@ -1,0 +1,22 @@
+<ion-header-bar align-title="left" class="bar-dark">
+    <div class="h1 title">法律法规</div>
+    <div class="buttons">
+        <button class="button no-animation button-icon icon ion-android-search">
+        </button>
+        <button class="button no-animation button-icon icon ion-android-add">
+        </button>
+    </div>
+</ion-header-bar>
+<ion-view>
+    <ion-content on-swipe-left="onSwipeLeft()" on-swipe-right="onSwipeRight()">
+        <ion-list rj-close-back-drop>
+            <ion-item class="item-avatar" rj-hold-active ng-repeat="law in laws" ng-click="lawDetail(law)">
+                <img ng-src="{{law.pic}}">
+                <span class="rj-sm-red-icon"><p ng-bind="law.details.length"></p></span>
+                <h2 ng-bind="law.name"></h2>
+                <p class="rj-list-p" ng-bind="law.title"></p>
+                <span class="rj-push-right" ng-bind="law.desc"></span>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,48 @@
+<ion-header-bar align-title="left" class="bar-dark">
+    <div class="buttons">
+        <button class="button button-icon icon ion-arrow-left-c" ng-click="questionList()"></button>
+    </div>
+    <!-- <div class="h1 title" ng-bind="message.name">微信</div> -->
+    <div class="h1 title" ng-bind="cas.title"></div>
+    <div class="buttons">
+        <button class="button button-icon icon ion-person"></button>
+    </div>
+</ion-header-bar>
+<ion-content class="rj-stable-content" id="cas-detail-content">
+    <div class="list">
+        <div class="item item-text-wrap" ng-repeat="que in currQuestion.question">
+            <p ng-show="que.string">
+                {{que.string}}
+            </p>
+            <div ng-show="que.img">
+                <img src="{{que.img}}" style="width:380px;height:300px;" />
+            </div>
+        </div>
+
+        <div class="item item-text-wrap" ng-show="answerVisible" ng-repeat="ans in currQuestion.answer">
+            <div ng-show="ans.string">
+                {{que.string}}
+            </div>
+            <div ng-show="ans.img">
+                <img src="{{ans.img}}" style="width:380px;height:150px;" />
+            </div>
+        </div>
+    </div>
+</ion-content>
+<ion-footer-bar align-title="left" class="bar-light" resize-foot-bar>
+    <p>
+        <button class="button icon-left ion-ios-checkmark-outline rj-hold-active " ng-click="answer()">答案</button>
+    </p>
+    &nbsp;
+    <p>
+        <button class="button icon-left ion-ios-list-outline rj-hold-active " ng-click="questionList()">列表</button>
+    </p>
+    &nbsp;
+    <p>
+        <button class="button icon-left ion-ios-rewind-outline rj-hold-active " ng-click="prevQuestion()" ng-disabled="prevBtnDisabled">上题</button>
+    </p>
+    &nbsp;
+    <p>
+        <button class="button icon-left ion-ios-fastforward-outline rj-hold-active " ng-click="nextQuestion()" ng-disabled="nextBtnDisabled">下题</button>
+    </p>
+</ion-footer-bar>
